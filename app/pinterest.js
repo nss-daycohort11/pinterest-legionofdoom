@@ -13,9 +13,24 @@ app.config(['$routeProvider',
 
 
 app.controller("loginControl",
-	["$q", "$http", "$scope", function(Q, HTTP, scope) {
+	["$scope", "$firebaseAuth", "Auth", function($scope, $firebaseAuth, Auth) {
+		$scope.user={};
 
+ 	  $scope.createUser = function() {
+      $scope.message = null;
+      $scope.error = null;
 
+      Auth.$createUser({
+        email: $scope.user.email,
+        password: $scope.user.password
+      }).then(function(userData) {
+        $scope.message = "User created with uid: " + userData.uid;
+      }).catch(function(error) {
+        $scope.error = error;
+      });
+    };
+  
+  console.log("auth", Auth);
 
 
 }]);

@@ -1,14 +1,15 @@
 <h1>PAIN-terest</h1>
 
 <!-- User inputs email/password for login/register -->
-<input class="middle form-control" type="text" id="email" placeholder="Enter Email" autofocus>
-<input class="middle form-control" type="password" id="password" placeholder="Enter Password">
+<input class="middle form-control" type="text" id="email" placeholder="Enter Email" autofocus ng-model="user.email">
+<input class="middle form-control" type="password" id="password" placeholder="Enter Password" ng-model="user.password">
+
 
 <!-- Chooses to login or signup, if correct, loads .main-page -->
 <div class="signin-clickers">
   <!-- Login -->
-  <button class="middle page-turn btn btn-default" type="button" id="login" next="main-page">Login</button>
+  <button class="middle page-turn btn btn-default" id="login">Login</button>
 
   <!-- Signup -->
-  <button class="middle page-turn btn btn-default" type="button" id="signupButton" next="main-page">Sign Up</button>
+  <button class="middle page-turn btn btn-default" id="signupButton" ng-click="createUser()">Sign Up</button>
 </div>
