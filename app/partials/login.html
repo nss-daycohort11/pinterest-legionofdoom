@@ -6,10 +6,12 @@
 
 
 <!-- Chooses to login or signup, if correct, loads .main-page -->
-<div class="signin-clickers">
+<div>
   <!-- Login -->
-  <button class="middle page-turn btn btn-default" id="login">Login</button>
+  <button class="btn btn-default" id="login" ng-click="loginUser()">Login</button>
 
   <!-- Signup -->
-  <button class="middle page-turn btn btn-default" id="signupButton" ng-click="createUser()">Sign Up</button>
+  <button class="btn btn-default" id="signupButton" ng-click="createUser()">Sign Up</button>
+  
+  <button class="btn btn-default" id="logout" ng-click="logOut()">Log Out</button>
 </div>
