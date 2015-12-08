@@ -1,5 +1,24 @@
-<h1>PAIN-terest</h1>
+<img class="logo" src="images/painterest_logo.png">
 
-<div>
-	<p>THIS IS THE MAIN BOARD</p>
+<div class="grid js-masonry" data-masonry-options='{ "itemSelector": ".grid-item", "columnWidth": 236 }'>
+
+	<div class="myPins grid-item" ng-repeat="pin in pins">
+
+	  <div class="pinPhoto">
+	  	<img src="{{pin.url}}">
+	  	<!-- <button class="btn btn-default btn-small" id="edit">edit</button> -->
+	  </div>
+
+	  <div class="widgetContent">
+	  	<h3>{{pin.title}}</h3>
+	  	<p>{{pin.text}}</p>
+	  </div>
+
+	  	<hr>
+
+	  <div class="widgetContent">
+	  	<p>{{pin.username}}</p>
+	  </div>
+	  
+	</div>
 </div>
