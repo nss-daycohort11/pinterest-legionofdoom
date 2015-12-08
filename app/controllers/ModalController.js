@@ -1,5 +1,6 @@
 app.controller('ModalController',
-  ["$scope", "$rootScope", "$uibModal", "$log", "Auth", function($scope, $rootScope, $uibModal, $log, Auth) {
+  ["$scope", "$rootScope", "$uibModal", "$log", "Auth", "$location", 
+  function($scope, $rootScope, $uibModal, $log, Auth, $location) {
 
   $scope.animationsEnabled = true;
   console.log("DO WE EVER REACH HERE?");
