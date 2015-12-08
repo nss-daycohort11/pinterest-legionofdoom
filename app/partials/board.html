@@ -2,23 +2,25 @@
 
 <div class="grid js-masonry" data-masonry-options='{ "itemSelector": ".grid-item", "columnWidth": 236 }'>
 
-	<div class="myPins grid-item" ng-repeat="pin in pins">
+	<div  ng-repeat="pin in pins">
+		<div class="myPins grid-item" ng-repeat="stuff in pin">
 
-	  <div class="pinPhoto">
-	  	<img src="{{pin.img}}">
-	  	<!-- <button class="btn btn-default btn-small" id="edit">edit</button> -->
-	  </div>
+		  <div class="pinPhoto">
+		  	<img src="{{stuff.img}}">
+		  	<!-- <button class="btn btn-default btn-small" id="edit">edit</button> -->
+		  </div>
 
-	  <div class="widgetContent">
-	  	<h3>{{pin.title}}</h3>
-	  	<p>{{pin.description}}</p>
-	  </div>
+		  <div class="widgetContent">
+		  	<h3>{{stuff.title}}</h3>
+		  	<p>{{stuff.description}}</p>
+		  </div>
 
-	  	<hr>
+		  	<hr>
 
-	  <div class="widgetContent">
-	  	<p>{{pin.board}}</p> <!-- Should be username -->
-	  </div>
-	  
+		  <div class="widgetContent">
+		  	<p>{{stuff.board}}</p> <!-- Should be username -->
+		  </div>
+		  
+		</div>
 	</div>
 </div>
