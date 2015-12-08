@@ -10,6 +10,7 @@ app.controller('ModalController',
     Auth.logUs(false);
     $scope.user={};
     console.log("No longer logged in?");
+    $location.path('/login').replace();
   };
 
   $scope.goMain = function(){
