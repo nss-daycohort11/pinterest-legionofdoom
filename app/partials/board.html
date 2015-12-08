@@ -3,9 +3,9 @@
 <!-- <div ng-repeat="pin in pins" class="myPins"> -->
 <div id="wrapper">
 	<div id="columns">
-
 		<div ng-repeat="pin in pins">
 			<div class="widgets" ng-repeat="stuff in pin">
+		  		<button class="btn btn-primary" type="button" ng-click="addToBoard(stuff)">Add to Board</button>
 
 			  <div class="pinPhoto">
 			  	<img src="{{stuff.img}}">
