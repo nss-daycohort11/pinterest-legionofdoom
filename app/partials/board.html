@@ -5,19 +5,19 @@
 	<div class="myPins grid-item" ng-repeat="pin in pins">
 
 	  <div class="pinPhoto">
-	  	<img src="{{pin.url}}">
+	  	<img src="{{pin.img}}">
 	  	<!-- <button class="btn btn-default btn-small" id="edit">edit</button> -->
 	  </div>
 
 	  <div class="widgetContent">
 	  	<h3>{{pin.title}}</h3>
-	  	<p>{{pin.text}}</p>
+	  	<p>{{pin.description}}</p>
 	  </div>
 
 	  	<hr>
 
 	  <div class="widgetContent">
-	  	<p>{{pin.username}}</p>
+	  	<p>{{pin.board}}</p> <!-- Should be username -->
 	  </div>
 	  
 	</div>

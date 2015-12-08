@@ -10,7 +10,7 @@ app.config(['$routeProvider',
       })
       .when('/board', {
         templateUrl: 'app/partials/board.html',
-        controller: 'MainCtrl'
+        controller: 'Board'
       })
       .otherwise('/login');
   }]);
