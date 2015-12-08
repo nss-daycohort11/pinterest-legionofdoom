@@ -13,18 +13,20 @@ app.config(['$routeProvider',
 
 
 app.controller("loginControl",
-	["$scope", "$firebaseAuth", "Auth", function($scope, $firebaseAuth, Auth) {
+	["$scope", "$firebaseAuth", "Auth", "$location", function($scope, $firebaseAuth, Auth, $location) {
 		$scope.user={};
+		$scope.loggedIn=true;
 
  	  $scope.createUser = function() {
       $scope.message = null;
       $scope.error = null;
 
-      Auth.$createUser({
+      Auth.useAuth().$createUser({
         email: $scope.user.email,
         password: $scope.user.password
       }).then(function(userData) {
         $scope.message = "User created with uid: " + userData.uid;
+        Auth.logUs(true);
       }).catch(function(error) {
         $scope.error = error;
       });
@@ -34,11 +36,12 @@ app.controller("loginControl",
       $scope.message = null;
       $scope.error = null;
 
-      Auth.$authWithPassword({
+      Auth.useAuth().$authWithPassword({
         email: $scope.user.email,
         password: $scope.user.password
       }).then(function(userData) {
-        $scope.message = "User created with uid: " + userData.uid;
+        $scope.message = "User logged in with uid: " + userData.uid;
+        Auth.logUs(true);
         console.log("HELLO?", $scope.message);
       }).catch(function(error) {
         $scope.error = error;
@@ -46,15 +49,27 @@ app.controller("loginControl",
     };
 
     $scope.logOut = function() {
-    	Auth.$unauth();
+    	Auth.useAuth().$unauth();
+    	$scope.authData = null;
+    	Auth.logUs(false);
+    	$scope.user={};
     	console.log("No longer logged in?");
     };
 
-    $scope.auth = Auth;
+    $scope.auth = Auth.useAuth();
+    console.log("loggedIn", $scope.loggedIn);
+
 
     // any time auth status updates, add the user data to scope
     $scope.auth.$onAuth(function(authData) {
       $scope.authData = authData;
+      if (authData) {
+      	var test = Auth.isLoggedIn();
+      	console.log("Are We logged in TEST", test);
+      } else {
+      	console.log("Are we logged out", $scope.authData);
+			  $location.path('/login').replace();
+			}
       console.log("authData", authData);
     });
   
