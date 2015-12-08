@@ -51,8 +51,20 @@
 			            <li><a href="#">Separated link</a></li>
 			          </ul>
 			        </li>
-			        <li class="option profile"><a href="#">Profile</a></li>
-			        <li><button class="btn btn-default" id="logout" ng-click="logOut()">Log Out</button></li>
+			        <li class="option profile">
+			        	<!-- Single button -->
+						    <div class="btn-group" uib-dropdown is-open="status.isopen">
+						      <button id="single-button" type="button" class="btn option" uib-dropdown-toggle ng-disabled="disabled">
+						        Profile Options <span class="caret"></span>
+						      </button>
+						      <ul class="uib-dropdown-menu" role="menu" aria-labelledby="single-button">
+						        <li role="menuitem"><a href="#">Your Profile</a></li>
+						        <li class="divider"></li>
+						        <li role="menuitem"><a ng-click="logOut()">Log Out</a></li>
+						      </ul>
+						    </div>
+    					</li> <!-- end single button -->
+			        <!-- <li><button class="btn btn-default" id="logout" >Log Out</button></li> -->
 			      </ul>
 			    </div><!-- /.navbar-collapse -->
 			  </div><!-- /.container-fluid -->
