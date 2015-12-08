@@ -19,4 +19,20 @@
 .nav, .pagination, .carousel, .panel-title a {
   cursor: pointer; }
 
+#content {
+  padding: 0 30px; }
+
+.btn:hover {
+  background-color: #eee;
+  border: 1px solid #ccc;
+  border-left: 0;
+  color: #555; }
+
+.form-control:focus + .input-group-addon {
+  background-color: #66afe9;
+  color: #fff; }
+
+.form-control:focus + .input-group-addon:hover {
+  background-color: #3696e2; }
+
 /*# sourceMappingURL=main.css.map */
