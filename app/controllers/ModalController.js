@@ -7,6 +7,14 @@ app.controller('ModalController',
   // $scope.loggedIn = Auth.isLoggedIn();
   console.log("DO WE EVERREACH HERE?");
 
+  $scope.logOut = function() {
+    Auth.useAuth().$unauth();
+    $scope.authData = null;
+    Auth.logUs(false);
+    $scope.user={};
+    console.log("No longer logged in?");
+  };
+
   $scope.sayHi = function(){
     console.log("HI");
     $scope.loggedIn = Auth.isLoggedIn();
