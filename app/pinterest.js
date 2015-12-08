@@ -12,6 +12,10 @@ app.config(['$routeProvider',
         templateUrl: 'app/partials/board.html',
         controller: 'Board'
       })
+      .when('/profile', {
+        templateUrl: 'app/partials/profile.html',
+        controller: 'Profile'
+      })
       .otherwise('/login');
   }]);
 
