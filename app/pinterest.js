@@ -20,6 +20,10 @@ app.controller("loginControl",
       $scope.message = null;
       $scope.error = null;
       $scope.starter = [];
+      var boardStuff = {PinIsOnThisBoard:'sample'};
+      var imgUrl = "ImageString";
+      var pinTitle = "pin Title";
+      var pinDesc = "pin Description";
 
       Auth.$createUser({
         email: $scope.user.email,
@@ -29,7 +33,7 @@ app.controller("loginControl",
     
         var addRef = new Firebase("https://legionofdoom.firebaseio.com/users/" + userData.uid);
         addRef = $firebaseArray(addRef)
-        addRef.$add(userData.uid);
+        addRef.$add({board: boardStuff, imgUrl, pinTitle, pinDesc});
 
       }).catch(function(error) {
         $scope.error = error;
