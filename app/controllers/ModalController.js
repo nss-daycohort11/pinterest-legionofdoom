@@ -1,8 +1,6 @@
 app.controller('ModalController',
   ["$scope", "$rootScope", "$uibModal", "$log", "Auth", function($scope, $rootScope, $uibModal, $log, Auth) {
 
-  $scope.items = ['item1', 'item2', 'item3'];
-
   $scope.animationsEnabled = true;
   // $scope.loggedIn = Auth.isLoggedIn();
   console.log("DO WE EVERREACH HERE?");
@@ -51,7 +49,7 @@ app.controller('ModalController',
 // Please note that $modalInstance represents a modal window (instance) dependency.
 // It is not the same as the $uibModal service used above.
 
-app.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, items, $firebaseArray, Auth) {
+app.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, $firebaseArray, Auth) {
 
   $scope.pins = [];
   // $scope.selected = {
