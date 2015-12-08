@@ -27,7 +27,7 @@ app.controller("loginControl",
       $scope.message = null;
       $scope.error = null;
       $scope.starter = [];
-      var boardStuff = {PinIsOnThisBoard:'sample'};
+      var boardStuff = 'sample';
       var imgUrl = "ImageString";
       var pinTitle = "pin Title";
       var pinDesc = "pin Description";
