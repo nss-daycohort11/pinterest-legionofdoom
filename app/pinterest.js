@@ -1,4 +1,4 @@
-var app = angular.module("PinterestApp", ["ngRoute", "firebase"]);
+var app = angular.module("PinterestApp", ["ngRoute", "firebase", 'ui.bootstrap']);
 
 
 app.config(['$routeProvider',
