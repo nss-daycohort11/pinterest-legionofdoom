@@ -2,8 +2,7 @@ app.controller('ModalController',
   ["$scope", "$rootScope", "$uibModal", "$log", "Auth", function($scope, $rootScope, $uibModal, $log, Auth) {
 
   $scope.animationsEnabled = true;
-  // $scope.loggedIn = Auth.isLoggedIn();
-  console.log("DO WE EVERREACH HERE?");
+  console.log("DO WE EVER REACH HERE?");
 
   $scope.logOut = function() {
     Auth.useAuth().$unauth();
@@ -13,16 +12,14 @@ app.controller('ModalController',
     console.log("No longer logged in?");
   };
 
-  $scope.sayHi = function(){
+  $scope.goMain = function(){
     console.log("HI");
-    // $rootScope.loggedIn = Auth.isLoggedIn();
-    // console.log("$scope.loggedIn",$scope.loggedIn);
+    $location.path('/board').replace();
   }
 
   $scope.open = function (size) {
     console.log("Line 8 happened");
     var modalInstance = $uibModal.open({
-      // animation: $scope.animationsEnabled,
       templateUrl: 'app/partials/modal.html',
       controller: 'ModalInstanceCtrl',
       size: size,
@@ -39,10 +36,6 @@ app.controller('ModalController',
       $log.info('Modal dismissed at: ' + new Date());
     });
   };
-
-  // $scope.toggleAnimation = function () {
-  //   $scope.animationsEnabled = !$scope.animationsEnabled;
-  // };
 
 }]);
 
