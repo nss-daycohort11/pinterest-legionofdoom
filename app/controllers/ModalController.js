@@ -1,5 +1,5 @@
 app.controller('ModalController',
-  ["$scope", "$uibModal", "$log", "Auth", function($scope, $uibModal, $log, Auth) {
+  ["$scope", "$rootScope", "$uibModal", "$log", "Auth", function($scope, $rootScope, $uibModal, $log, Auth) {
 
   $scope.items = ['item1', 'item2', 'item3'];
 
@@ -9,7 +9,7 @@ app.controller('ModalController',
 
   $scope.sayHi = function(){
     console.log("HI");
-    $scope.loggedIn = Auth.isLoggedIn();
+    // $rootScope.loggedIn = Auth.isLoggedIn();
     // console.log("$scope.loggedIn",$scope.loggedIn);
   }
 

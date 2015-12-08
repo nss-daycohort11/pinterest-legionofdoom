@@ -17,10 +17,9 @@ app.config(['$routeProvider',
 
 
 app.controller("loginControl",
-	["$scope", "$firebaseAuth", "Auth", "$firebaseArray", "$location", function($scope, $firebaseAuth, Auth, $firebaseArray, $location) {
+	["$scope", "$firebaseAuth", "Auth", "$firebaseArray", "$location", "$rootScope", function($scope, $firebaseAuth, Auth, $firebaseArray, $location, $rootScope) {
 
 		$scope.user={};
-		$scope.loggedIn=true;
 
  	  $scope.signUp = function() {
       $scope.message = null;
@@ -30,18 +29,30 @@ app.controller("loginControl",
       var imgUrl = "ImageString";
       var pinTitle = "pin Title";
       var pinDesc = "pin Description";
+        // Auth.logUs(true);
 
       Auth.useAuth().$createUser({
         email: $scope.user.email,
         password: $scope.user.password
       }).then(function(userData) {
         $scope.message = "User created with uid: " + userData.uid;
-   
-        var addRef = new Firebase("https://legionofdoom.firebaseio.com/users/" + userData.uid);
-        addRef = $firebaseArray(addRef)
-        addRef.$add({board: boardStuff, imgUrl, pinTitle, pinDesc});
         
-        Auth.logUs(true);
+        console.log("What we'll add", {board: boardStuff, imgUrl, pinTitle, pinDesc});
+        
+        var addRef = new Firebase("https://legionofdoom.firebaseio.com/users/" + userData.uid);
+        var addRefArray = $firebaseArray(addRef)
+        addRefArray.$loaded()
+          .then(function() {
+            addRefArray.$add({board: boardStuff, imgUrl, pinTitle, pinDesc});
+          }) 
+          .then(function() {
+            $rootScope.loggedIn = true;
+            $location.path('/board').replace();
+          })
+          .catch(function(error) {
+          console.log("Error in the addRef:", error);
+          });
+
       }).catch(function(error) {
         $scope.error = error;
       });
@@ -56,7 +67,8 @@ app.controller("loginControl",
         password: $scope.user.password
       }).then(function(userData) {
         $scope.message = "User logged in with uid: " + userData.uid;
-        Auth.logUs(true);
+        $rootScope.loggedIn = true;
+        // Auth.logUs(true);
 
         $location.path('/board').replace();
 
@@ -69,7 +81,8 @@ app.controller("loginControl",
     $scope.logOut = function() {
     	Auth.useAuth().$unauth();
     	$scope.authData = null;
-    	Auth.logUs(false);
+      $rootScope.loggedIn = false;
+    	// Auth.logUs(false);
     	$scope.user={};
     	console.log("No longer logged in?");
     };
