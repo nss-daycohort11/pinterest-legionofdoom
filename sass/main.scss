@@ -36,6 +36,11 @@ body {
 	margin-bottom: 10px;
 }
 
+.loginLogo {
+	width: 600px;
+	margin-bottom: 40px;
+}
+
 .navbar-right li a {
 	padding-top: 17px;
 }
@@ -47,6 +52,13 @@ body {
 	background-size: 60%;
 	background-position: 50% 50%;
 	background-repeat: no-repeat;
+}
+
+.btn-info:hover {
+	background-color: #eee;
+	border: 1px solid #ccc;
+	border-left: 0;
+	color: #555;
 }
 
 .profile {
@@ -61,11 +73,32 @@ body {
 	padding: 0 30px 30px;
 }
 
-.btn:hover {
-	background-color: #eee;
-	border: 1px solid #ccc;
-	border-left: 0;
-	color: #555;
+#loginContent {
+	width: 80%;
+	margin: 150px auto 0;
+	text-align: center;
+}
+
+#loginContent input {
+	font-size: 2em;
+	height: auto;
+}
+
+#loginContent button {
+	margin: 0 10px;
+}
+
+#password {
+	margin: 20px 0;
+}
+
+#login,
+#signupButton {
+	font-size: 1.4em;
+}
+
+#loginButtons {
+	margin-top: 40px;
 }
 
 .form-control:focus + .input-group-addon {
