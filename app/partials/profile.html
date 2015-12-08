@@ -1,24 +1,25 @@
 <img class="logo" src="images/painterest_logo.png">
 
-<div class="grid js-masonry" data-masonry-options='{ "itemSelector": ".grid-item", "columnWidth": 236 }'>
+<div id="wrapper">
+	<div id="columns">
+		<div  ng-repeat="pin in ppins" class="widgets">
 
-	<div  ng-repeat="pin in ppins" class="myPins grid-item">
+		  <div class="pinPhoto">
+		  	<img src="{{pin.img}}">
+		  	<!-- <button class="btn btn-default btn-small" id="edit">edit</button> -->
+		  </div>
 
-	  <div class="pinPhoto">
-	  	<img src="{{pin.img}}">
-	  	<!-- <button class="btn btn-default btn-small" id="edit">edit</button> -->
-	  </div>
+		  <div class="widgetContent">
+		  	<h3>{{pin.title}}</h3>
+		  	<p>{{pin.description}}</p>
+		  </div>
 
-	  <div class="widgetContent">
-	  	<h3>{{pin.title}}</h3>
-	  	<p>{{pin.description}}</p>
-	  </div>
+		  	<hr>
 
-	  	<hr>
-
-	  <div class="widgetContent">
-	  	<p>{{pin.board}}</p> <!-- Should be username -->
-	  </div>
-		  
+		  <div class="widgetContent">
+		  	<p>{{pin.board}}</p> <!-- Should be username -->
+		  </div>
+			  
+		</div>
 	</div>
 </div>
