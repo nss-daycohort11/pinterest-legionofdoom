@@ -1,4 +1,4 @@
-var app = angular.module("PinterestApp", ["ngRoute", "firebase", 'ui.bootstrap']);
+var app = angular.module("PinterestApp", ["ngRoute", "firebase", "ui.bootstrap"]);
 
 
 app.config(['$routeProvider',
@@ -17,7 +17,7 @@ app.controller("loginControl",
 		$scope.user={};
 		$scope.loggedIn=true;
 
- 	  $scope.createUser = function() {
+ 	  $scope.signUp = function() {
       $scope.message = null;
       $scope.error = null;
 
