@@ -16,4 +16,7 @@
 .profile {
   margin-left: 30px; }
 
+.nav, .pagination, .carousel, .panel-title a {
+  cursor: pointer; }
+
 /*# sourceMappingURL=main.css.map */
