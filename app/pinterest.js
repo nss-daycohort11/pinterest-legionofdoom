@@ -8,6 +8,10 @@ app.config(['$routeProvider',
         templateUrl: 'app/partials/login.html',
         controller: 'loginControl'
       })
+      .when('/board', {
+        templateUrl: 'app/partials/board.html',
+        controller: 'MainCtrl'
+      })
       .otherwise('/login');
   }]);
 
@@ -53,6 +57,9 @@ app.controller("loginControl",
       }).then(function(userData) {
         $scope.message = "User logged in with uid: " + userData.uid;
         Auth.logUs(true);
+
+        $location.path('/board').replace();
+
         console.log("HELLO?", $scope.message);
       }).catch(function(error) {
         $scope.error = error;
