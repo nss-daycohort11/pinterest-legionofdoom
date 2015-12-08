@@ -4,144 +4,27 @@
 <div id="wrapper">
 	<div id="columns">
 
-		<div class="pins">
+		<div class="widgets" ng-repeat="pin in pins">
+			<div ng-repeat="stuff in pin">
 
-		  <div class="pinPhoto">
-		  	<img src="https://s-media-cache-ak0.pinimg.com/736x/c4/a4/57/c4a457f4509620714d980ab89e4b2b4c.jpg">
-		  	<!-- <button class="btn btn-default btn-small" id="edit">edit</button> -->
-		  </div>
+			  <div class="pinPhoto">
+			  	<img src="{{stuff.img}}">
+			  	<!-- <button class="btn btn-default btn-small" id="edit">edit</button> -->
+			  </div>
 
-		  <div class="widgetContent">
-		  	<h3>Title Goes Here</h3>
-		  	<p>Text goes here, of course.</p>
-		  </div>
+			  <div class="widgetContent">
 
-		  	<hr>
+			  	<h3>{{stuff.title}}</h3>
+			  	<p>{{stuff.description}}</p>
 
-		  <div class="widgetContent">
-		  	<p>Username goes here.</p>
-		  </div>
-		  
-		</div>
+			  </div>
 
-		<div class="pins">
+			  	<hr>
 
-		  <div class="pinPhoto">
-		  	<img src="http://www.cuteadorable.com/wp-content/uploads/2015/05/cuteadorable-kitty.jpg">
-		  	<!-- <button class="btn btn-default btn-small" id="edit">edit</button> -->
-		  </div>
-
-		  <div class="widgetContent">
-		  	<h3>Title Goes Here</h3>
-		  	<p>Text goes here, of course.</p>
-		  </div>
-
-		  	<hr>
-
-		  <div class="widgetContent">
-		  	<p>Username goes here.</p>
-		  </div>
-		  
-		</div>
-
-		<div class="pins">
-
-		  <div class="pinPhoto">
-		  	<img src="http://www.catkitty.org/wp-content/uploads/2012/01/Cute-Kittens-Pictures.jpg">
-		  	<!-- <button class="btn btn-default btn-small" id="edit">edit</button> -->
-		  </div>
-
-		  <div class="widgetContent">
-		  	<h3>Title Goes Here</h3>
-		  	<p>Text goes here, of course.</p>
-		  </div>
-
-		  	<hr>
-
-		  <div class="widgetContent">
-		  	<p>Username goes here.</p>
-		  </div>
-		  
-		</div>
-
-		<div class="pins">
-
-		  <div class="pinPhoto">
-		  	<img src="http://graphico.in/wp-content/uploads/2014/12/Cute-kitty-in-attention.jpg">
-		  	<!-- <button class="btn btn-default btn-small" id="edit">edit</button> -->
-		  </div>
-
-		  <div class="widgetContent">
-		  	<h3>Title Goes Here</h3>
-		  	<p>Text goes here, of course.</p>
-		  </div>
-
-		  	<hr>
-
-		  <div class="widgetContent">
-		  	<p>Username goes here.</p>
-		  </div>
-		  
-		</div>
-
-		<div class="pins">
-
-		  <div class="pinPhoto">
-		  	<img src="https://s-media-cache-ak0.pinimg.com/originals/67/c5/c0/67c5c0e309af3d280578f77488ac4caf.gif">
-		  	<!-- <button class="btn btn-default btn-small" id="edit">edit</button> -->
-		  </div>
-
-		  <div class="widgetContent">
-		  	<h3>Title Goes Here</h3>
-		  	<p>Text goes here, of course.</p>
-		  </div>
-
-		  	<hr>
-
-		  <div class="widgetContent">
-		  	<p>Username goes here.</p>
-		  </div>
-		  
-		</div>
-
-		<div class="pins">
-
-		  <div class="pinPhoto">
-		  	<img src="http://84d1f3.medialib.glogster.com/media/7a/7a58ecde3e2aeeeedccfc6f0a7dff58b34ee4eff246b8ea829e921142902d212/cute-kitten-2.jpg">
-		  	<!-- <button class="btn btn-default btn-small" id="edit">edit</button> -->
-		  </div>
-
-		  <div class="widgetContent">
-		  	<h3>Title Goes Here</h3>
-		  	<p>Text goes here, of course.</p>
-		  </div>
-
-		  	<hr>
-
-		  <div class="widgetContent">
-		  	<p>Username goes here.</p>
-		  </div>
-		  
-		</div>
-
-		<div class="pins">
-
-		  <div class="pinPhoto">
-		  	<img src="http://www.catkitty.org/wp-content/uploads/2012/01/Cute-Kittens-Pictures.jpg">
-		  	<!-- <button class="btn btn-default btn-small" id="edit">edit</button> -->
-		  </div>
-
-		  <div class="widgetContent">
-		  	<h3>Title Goes Here</h3>
-		  	<p>Text goes here, of course.</p>
-		  </div>
-
-		  	<hr>
-
-		  <div class="widgetContent">
-		  	<p>Username goes here.</p>
-		  </div>
-		  
+			  <div class="widgetContent">
+			  	<p>{{stuff.board}}</p> <!-- Should be username -->
+			  </div>
+		  	</div>
 		</div>
 	</div>
 </div>

@@ -10,7 +10,11 @@ app.config(['$routeProvider',
       })
       .when('/board', {
         templateUrl: 'app/partials/board.html',
-        controller: 'MainCtrl'
+        controller: 'Board'
+      })
+      .when('/profile', {
+        templateUrl: 'app/partials/profile.html',
+        controller: 'Profile'
       })
       .otherwise('/login');
   }]);
@@ -27,10 +31,10 @@ app.controller("loginControl",
       $scope.message = null;
       $scope.error = null;
       $scope.starter = [];
-      var boardStuff = {PinIsOnThisBoard:'sample'};
-      var imgUrl = "ImageString";
-      var pinTitle = "pin Title";
-      var pinDesc = "pin Description";
+      var board = 'sample';
+      var img = "ImageString";
+      var title = "pin Title";
+      var description = "pin Description";
         // Auth.logUs(true);
 
       Auth.useAuth().$createUser({
@@ -38,14 +42,15 @@ app.controller("loginControl",
         password: $scope.user.password
       }).then(function(userData) {
         $scope.message = "User created with uid: " + userData.uid;
+        Auth.setUid(userData.uid);
         
-        console.log("What we'll add", {board: boardStuff, imgUrl, pinTitle, pinDesc});
+        console.log("What we'll add", {board: board, img, title, description});
         
         var addRef = new Firebase("https://legionofdoom.firebaseio.com/users/" + userData.uid);
         var addRefArray = $firebaseArray(addRef)
         addRefArray.$loaded()
           .then(function() {
-            addRefArray.$add({board: boardStuff, imgUrl, pinTitle, pinDesc});
+            addRefArray.$add({board: board, img, title, description});
           }) 
           .then(function() {
             $rootScope.loggedIn = true;
@@ -71,7 +76,7 @@ app.controller("loginControl",
         $scope.message = "User logged in with uid: " + userData.uid;
         $rootScope.loggedIn = true;
         // Auth.logUs(true);
-
+        Auth.setUid(userData.uid);
         $location.path('/board').replace();
 
         console.log("HELLO?", $scope.message);
