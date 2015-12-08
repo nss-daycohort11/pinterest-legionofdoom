@@ -17,6 +17,19 @@ body {
 	margin-top: 10px;
 }
 
+#single-button {
+	margin-top: 10px;
+	border: 1px solid #ccc;
+}
+
+.uib-dropdown-menu li a {
+	padding-top: 5px !important;
+}
+
+.dropdown-menu .divider {
+	margin: 5px 0;
+}
+
 .logo {
 	width: 300px;
 	display: block;
@@ -28,11 +41,12 @@ body {
 }
 
 .input-group-addon:first-child {
-	background-color: #000;
-	color: #fff;
-	border: 1px solid #000;
-	font-weight: bold;
+	width: 40px;
 	border-right: 0;
+	background-image: url("../images/pinterest.png");
+	background-size: 60%;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
 }
 
 .profile {
@@ -63,15 +77,29 @@ body {
 	background-color: #3696e2;
 }
 
-.myPins {
+#columns {
+	-webkit-column-count: 2;
+	-moz-column-count: 2;
+	column-count: 2;
+}
+
+.widgets {
 	background-color: #fff;
 	vertical-align: top;
-	width: 236px;
-	margin: 14px 7px 0;
+	width: 100%;
+	margin: 14px 7px 5px;
+	padding-bottom: 5px;
 	border-radius: 6px;
 	display: inline-block;
 	-webkit-box-shadow: 0 1px 2px 0 rgba(0,0,0,0.22);
 	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.22);
+	-webkit-column-break-inside: avoid;
+	-moz-column-break-inside: avoid;
+	column-break-inside: avoid;
+	-webkit-transition: all .2s ease;
+	-moz-transition: all .2s ease;
+	-o-transition: all .2s ease;
+	transition: all .2s ease;
 }
 
 .pinPhoto img {
@@ -81,11 +109,43 @@ body {
 }
 
 .widgetContent {
-	padding-left: 20px;
+	padding: 0 20px;
 }
 
-.grid-item { width: 236px; }
 
+
+/**********************************
+MEDIA QUERIES
+**********************************/
+
+@media (min-width: 800px) {
+	#columns {
+		-webkit-column-count: 3;
+		-moz-column-count: 3;
+		column-count: 3;
+	}
+}
+
+@media (min-width: 1060px) {
+	#columns {
+		-webkit-column-count: 4;
+		-moz-column-count: 4;
+		column-count: 4;
+	}
+}
+
+@media (min-width: 1320px) {
+	#columns {
+		-webkit-column-count: 5;
+		-moz-column-count: 5;
+		column-count: 5;
+	}
+}
+
+/* #columns:hover .pins:not(:hover) {
+	opacity: 0.4;
+}
+ */
 
 
 
