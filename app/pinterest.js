@@ -38,6 +38,7 @@ app.controller("loginControl",
         password: $scope.user.password
       }).then(function(userData) {
         $scope.message = "User created with uid: " + userData.uid;
+        Auth.setUid(userData.uid);
         
         console.log("What we'll add", {board: boardStuff, imgUrl, pinTitle, pinDesc});
         
@@ -71,7 +72,7 @@ app.controller("loginControl",
         $scope.message = "User logged in with uid: " + userData.uid;
         $rootScope.loggedIn = true;
         // Auth.logUs(true);
-
+        Auth.setUid(userData.uid);
         $location.path('/board').replace();
 
         console.log("HELLO?", $scope.message);

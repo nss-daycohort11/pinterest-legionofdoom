@@ -51,7 +51,7 @@ app.controller('ModalController',
 // Please note that $modalInstance represents a modal window (instance) dependency.
 // It is not the same as the $uibModal service used above.
 
-app.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, items, $firebaseArray) {
+app.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, items, $firebaseArray, Auth) {
 
   $scope.pins = [];
   // $scope.selected = {
@@ -59,7 +59,7 @@ app.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, items, 
   // };
 
   $scope.ok = function () {
-    var addRef = new Firebase("https://legionofdoom.firebaseio.com/users");
+    var addRef = new Firebase("https://legionofdoom.firebaseio.com/users/" + Auth.getUid() + "/");
     addRef = $firebaseArray(addRef)
     addRef.$loaded().then(function(){
       
