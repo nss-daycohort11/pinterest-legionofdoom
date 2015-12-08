@@ -13,18 +13,31 @@ app.config(['$routeProvider',
 
 
 app.controller("loginControl",
-	["$scope", "$firebaseAuth", "Auth", function($scope, $firebaseAuth, Auth) {
+	["$scope", "$firebaseAuth", "Auth", "$firebaseArray", "$location", function($scope, $firebaseAuth, Auth, $firebaseArray, $location) {
+
 		$scope.user={};
+		$scope.loggedIn=true;
 
  	  $scope.signUp = function() {
       $scope.message = null;
       $scope.error = null;
+      $scope.starter = [];
+      var boardStuff = {PinIsOnThisBoard:'sample'};
+      var imgUrl = "ImageString";
+      var pinTitle = "pin Title";
+      var pinDesc = "pin Description";
 
-      Auth.$createUser({
+      Auth.useAuth().$createUser({
         email: $scope.user.email,
         password: $scope.user.password
       }).then(function(userData) {
         $scope.message = "User created with uid: " + userData.uid;
+   
+        var addRef = new Firebase("https://legionofdoom.firebaseio.com/users/" + userData.uid);
+        addRef = $firebaseArray(addRef)
+        addRef.$add({board: boardStuff, imgUrl, pinTitle, pinDesc});
+        
+        Auth.logUs(true);
       }).catch(function(error) {
         $scope.error = error;
       });
@@ -34,11 +47,12 @@ app.controller("loginControl",
       $scope.message = null;
       $scope.error = null;
 
-      Auth.$authWithPassword({
+      Auth.useAuth().$authWithPassword({
         email: $scope.user.email,
         password: $scope.user.password
       }).then(function(userData) {
-        $scope.message = "User created with uid: " + userData.uid;
+        $scope.message = "User logged in with uid: " + userData.uid;
+        Auth.logUs(true);
         console.log("HELLO?", $scope.message);
       }).catch(function(error) {
         $scope.error = error;
@@ -46,18 +60,16 @@ app.controller("loginControl",
     };
 
     $scope.logOut = function() {
-    	Auth.$unauth();
+    	Auth.useAuth().$unauth();
+    	$scope.authData = null;
+    	Auth.logUs(false);
+    	$scope.user={};
     	console.log("No longer logged in?");
     };
 
-    $scope.auth = Auth;
 
-    // any time auth status updates, add the user data to scope
-    $scope.auth.$onAuth(function(authData) {
-      $scope.authData = authData;
-      console.log("authData", authData);
-    });
-  
-  // console.log("authData outside of onAuth", authData);
+
+
+
 
 }]);

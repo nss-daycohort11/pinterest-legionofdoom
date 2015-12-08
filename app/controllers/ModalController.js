@@ -1,8 +1,17 @@
-app.controller('ModalController', function ($scope, $uibModal, $log) {
+app.controller('ModalController',
+  ["$scope", "$uibModal", "$log", "Auth", function($scope, $uibModal, $log, Auth) {
 
   $scope.items = ['item1', 'item2', 'item3'];
 
   $scope.animationsEnabled = true;
+  // $scope.loggedIn = Auth.isLoggedIn();
+  console.log("DO WE EVERREACH HERE?");
+
+  $scope.sayHi = function(){
+    console.log("HI");
+    $scope.loggedIn = Auth.isLoggedIn();
+    // console.log("$scope.loggedIn",$scope.loggedIn);
+  }
 
   $scope.open = function (size) {
     console.log("Line 8 happened");
@@ -29,7 +38,7 @@ app.controller('ModalController', function ($scope, $uibModal, $log) {
   //   $scope.animationsEnabled = !$scope.animationsEnabled;
   // };
 
-});
+}]);
 
 // Please note that $modalInstance represents a modal window (instance) dependency.
 // It is not the same as the $uibModal service used above.
