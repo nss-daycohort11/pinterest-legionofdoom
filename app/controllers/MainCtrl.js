@@ -1,6 +1,6 @@
 app.controller("MainCtrl",
-	["$q", "$scope", "$firebaseArray", "$firebaseAuth", "Auth",
-	function($Q, $scope, $firebaseArray, $firebaseAuth, Auth) {
+	["$q", "$scope", "$firebaseArray", "$firebaseAuth", "Auth", "$location",
+	function($Q, $scope, $firebaseArray, $firebaseAuth, Auth, $location) {
 
 
 	$scope.legend = "ENTER NEW INFORMATION HERE";
@@ -14,12 +14,15 @@ app.controller("MainCtrl",
       $scope.authData = authData;
       if (authData) {
       	var test = Auth.isLoggedIn();
+      	$scope.loggedIn = true;
       	console.log("Are We logged in TEST", test);
       } else {
       	console.log("Are we logged out", $scope.authData);
 			  $location.path('/login').replace();
+      	$scope.loggedIn = false;
 			}
       console.log("authData", authData);
+      $scope.$digest();
     });
 
 
