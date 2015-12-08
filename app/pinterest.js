@@ -17,7 +17,9 @@ app.config(['$routeProvider',
 
 
 app.controller("loginControl",
-	["$scope", "$firebaseAuth", "Auth", "$firebaseArray", "$location", "$rootScope", function($scope, $firebaseAuth, Auth, $firebaseArray, $location, $rootScope) {
+	["$scope", "$firebaseAuth", "Auth", "$firebaseArray", "$location", "$rootScope",
+	 function($scope, $firebaseAuth, Auth, $firebaseArray, $location, $rootScope) {
+
 
 		$scope.user={};
 
@@ -77,19 +79,6 @@ app.controller("loginControl",
         $scope.error = error;
       });
     };
-
-    $scope.logOut = function() {
-    	Auth.useAuth().$unauth();
-    	$scope.authData = null;
-      $rootScope.loggedIn = false;
-    	// Auth.logUs(false);
-    	$scope.user={};
-    	console.log("No longer logged in?");
-    };
-
-
-
-
 
 
 }]);
