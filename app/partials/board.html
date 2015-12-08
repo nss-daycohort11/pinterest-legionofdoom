@@ -4,6 +4,8 @@
 
 	<div  ng-repeat="pin in pins">
 		<div class="myPins grid-item" ng-repeat="stuff in pin">
+			
+		  <button class="btn btn-primary" type="button" ng-click="addToBoard(stuff)">Add to Board</button>
 
 		  <div class="pinPhoto">
 		  	<img src="{{stuff.img}}">

@@ -9,6 +9,15 @@ app.controller("Board",
    
       console.log("fireBoardArray", $scope.pins);
     
+	  $scope.addToBoard = function (notStuff) {
+	    console.log("stuff", this.stuff);
+	    var BoardRef = new Firebase("https://legionofdoom.firebaseio.com/users/" + Auth.getUid() + "/");
+	    BoardRef = $firebaseArray(BoardRef)
+
+	      
+	    console.log("BoardRef", BoardRef);
+	    BoardRef.$add(notStuff);
+		};
 
 
 }]);
