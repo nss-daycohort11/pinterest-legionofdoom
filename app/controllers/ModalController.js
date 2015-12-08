@@ -4,7 +4,7 @@ app.controller('ModalController',
   $scope.items = ['item1', 'item2', 'item3'];
 
   $scope.animationsEnabled = true;
-  $scope.loggedIn = Auth.isLoggedIn();
+  // $scope.loggedIn = Auth.isLoggedIn();
   console.log("DO WE EVERREACH HERE?");
 
   $scope.sayHi = function(){
