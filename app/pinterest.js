@@ -16,7 +16,7 @@ app.controller("loginControl",
 	["$scope", "$firebaseAuth", "Auth", function($scope, $firebaseAuth, Auth) {
 		$scope.user={};
 
- 	  $scope.createUser = function() {
+ 	  $scope.signUp = function() {
       $scope.message = null;
       $scope.error = null;
 
