@@ -4,8 +4,8 @@
 <div id="wrapper">
 	<div id="columns">
 		<div ng-repeat="pin in pins">
-			<div class="widgets" ng-repeat="stuff in pin">
-		  		<button class="btn btn-primary addToBoard" type="button" ng-click="addToBoard(stuff)">Add to Board</button>
+			<div class="widgets" ng-repeat="stuff in pin" ng-mouseover="hoverShow=true" ng-mouseout="hoverShow=false" ng-init="hoverShow=false">
+		  		<button class="btn btn-primary addToBoard" type="button" ng-if="hoverShow" ng-click="addToBoard(stuff)">Add to Board</button>
 
 			  <div class="pinPhoto">
 			  	<img src="{{stuff.img}}">
