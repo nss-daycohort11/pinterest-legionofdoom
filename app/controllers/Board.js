@@ -23,14 +23,8 @@ app.controller("Board",
             angular.forEach(entry, function(widget) {
                     var added = false;
             		if (widget === null || widget.title === null || !widget.title) {
-            			console.log("Nope!");
-            			console.log(widget);
             		} else if (widget.title) {
-                        console.log("Inside title");
                         angular.forEach(removeDupes, function(item) {
-                            console.log("Inside removeDupes");
-                            console.log("Item title", item.title);
-                            console.log("Widget title", widget.title);
                             if (item.title === widget.title) {
                                 added = true;
                             }
@@ -41,7 +35,7 @@ app.controller("Board",
             		}
             });
         });
-        console.log("newArrayAfter", removeDupes);
+
         for (var i = 0; i < removeDupes.length; i++) {
         	newArray[i] = removeDupes[i];
         }
