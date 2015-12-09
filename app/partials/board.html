@@ -5,7 +5,7 @@
 	<div id="columns">
 		<div ng-repeat="pin in pins">
 			<div class="widgets" ng-repeat="stuff in pin">
-		  		<button class="btn btn-primary" type="button" ng-click="addToBoard(stuff)">Add to Board</button>
+		  		<button class="btn btn-primary addToBoard" type="button" ng-click="addToBoard(stuff)">Add to Board</button>
 
 			  <div class="pinPhoto">
 			  	<img src="{{stuff.img}}">

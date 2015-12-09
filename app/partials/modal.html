@@ -1,24 +1,47 @@
 <div class="modal-header">
-    <h3 class="modal-title">Add a Pin!</h3>
+    <h3 class="modal-title">Need More Pain? Add a Pin!</h3>
 </div>
 <div class="modal-body">
 
- <label>
-        <input type="text" ng-model="pins.title"> Pin Title
-      </label>
-      <label>
-        <input type="text" ng-model="pins.description"> Pin Description
-      </label>
-      <label>
-        <input type="text" ng-model="pins.img"> Image URL 
-      </label>      
-      <label>
-        <input type="text" ng-model="pins.board"> Pin Board 
-      </label>
+  <label>
+    <div class="labels">
+      Pin Title: &nbsp;&nbsp;
+    </div>
+    <div class="modalInputs">
+      <input type="text" ng-model="pins.title">
+    </div>
+  </label>
+
+  <label>
+    <div class="labels">
+      Pin Description: &nbsp;&nbsp;
+    </div>
+    <div class="modalInputs">
+      <input type="text" ng-model="pins.description">
+    </div>
+  </label>
+
+  <label>
+    <div class="labels">
+      Image URL: &nbsp;&nbsp;
+    </div>
+    <div class="modalInputs">
+      <input type="text" ng-model="pins.img">
+    </div>
+  </label> 
+
+  <label>
+    <div class="labels">
+      Name Of Board: &nbsp;&nbsp;
+    </div>
+    <div class="modalInputs">
+      <input type="text" ng-model="pins.board">
+    </div>
+  </label>
 
 </div>
 <div class="modal-footer">
     <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
-    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+    <button class="btn btn-danger" type="button" ng-click="cancel()">Cancel</button>
 </div>
 

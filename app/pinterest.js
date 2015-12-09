@@ -1,4 +1,4 @@
-var app = angular.module("PinterestApp", ["ngRoute", "firebase", "ui.bootstrap"]);
+var app = angular.module("PinterestApp", ["ngRoute", "firebase", "ui.bootstrap", "angular.filter"]);
 
 
 app.config(['$routeProvider',
@@ -84,6 +84,7 @@ app.controller("loginControl",
         $scope.error = error;
       });
     };
+
 
 
 }]);
