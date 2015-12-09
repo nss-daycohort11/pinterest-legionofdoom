@@ -161,8 +161,8 @@ body {
 
 .addToBoard {
   position: absolute;
-  top: 10px;
-  left: 10px;
+  bottom: 10px;
+  right: 10px;
   border: 2px solid #2e6da4; }
 
 .pinPhoto img {
