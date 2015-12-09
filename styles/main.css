@@ -166,7 +166,7 @@ body {
   border: 2px solid #2e6da4; }
 
 .pinPhoto img {
-  max-width: 100%;
+  width: 100%;
   border-top-left-radius: 6px;
   border-top-right-radius: 6px; }
 
