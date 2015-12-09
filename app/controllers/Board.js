@@ -13,6 +13,10 @@ app.controller("Board",
     var removeDupes = [];
     var newArray = {};
 
+    if ($rootScope.loggedIn !== true) {
+      $location.path('/login').replace();
+    }
+
     entries.$loaded()
     .then(function(){
         angular.forEach(entries, function(entry) {
