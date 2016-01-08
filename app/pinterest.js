@@ -27,6 +27,7 @@ app.controller("loginControl",
 
 		$scope.user={};
 
+    //Signup functionality
  	  $scope.signUp = function() {
       $scope.message = null;
       $scope.error = null;
@@ -37,11 +38,13 @@ app.controller("loginControl",
       var description = "pin Description";
         // Auth.logUs(true);
 
+        //Authorizes user
       Auth.useAuth().$createUser({
         email: $scope.user.email,
         password: $scope.user.password
       }).then(function(userData) {
         $scope.message = "User created with uid: " + userData.uid;
+        //Store the UID
         Auth.setUid(userData.uid);
         
         console.log("What we'll add", {board: board, img, title, description});
@@ -53,6 +56,7 @@ app.controller("loginControl",
             addRefArray.$add({board: board, img, title, description});
           }) 
           .then(function() {
+            //Keep the auth state on the rootScope, since we built our controllers oddly
             $rootScope.loggedIn = true;
             $location.path('/board').replace();
           })
@@ -65,15 +69,18 @@ app.controller("loginControl",
       });
     };
 
+    // Logging in
     $scope.loginUser = function() {
       $scope.message = null;
       $scope.error = null;
 
+        //Authorizes user
       Auth.useAuth().$authWithPassword({
         email: $scope.user.email,
         password: $scope.user.password
       }).then(function(userData) {
         $scope.message = "User logged in with uid: " + userData.uid;
+        //Keep the auth state on the rootScope, since we built our controllers oddly
         $rootScope.loggedIn = true;
         // Auth.logUs(true);
         Auth.setUid(userData.uid);

@@ -17,6 +17,7 @@ app.controller("Board",
       $location.path('/login').replace();
     }
 
+    //After loading the 'pins', we cycle through them removing all the duplicates
     entries.$loaded()
     .then(function(){
         angular.forEach(entries, function(entry) {
@@ -42,12 +43,7 @@ app.controller("Board",
         $scope.pins = [newArray];
     });
    
-
-
-    
-
-
-    
+   //This calls the particular users firebase and stores the passed 'pin' 
 	$scope.addToBoard = function (notStuff) {
 	    console.log("stuff", this.stuff);
 	    var BoardRef = new Firebase("https://legionofdoom.firebaseio.com/users/" + Auth.getUid() + "/");

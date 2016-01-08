@@ -5,6 +5,7 @@ app.controller('ModalController',
   $scope.animationsEnabled = true;
   console.log("DO WE EVER REACH HERE?");
 
+  //Log out on button click
   $scope.logOut = function() {
     Auth.useAuth().$unauth();
     $scope.authData = null;
@@ -14,13 +15,14 @@ app.controller('ModalController',
     $location.path('/login').replace();
   };
 
+  //changes the page after logging in or you sign up
   $scope.goMain = function(){
     console.log("HI");
     $location.path('/board').replace();
   }
 
+  //This is the function to open the 'add a pin' modal (the modal is in it's own controller below)
   $scope.open = function (size) {
-    console.log("Line 8 happened");
     var modalInstance = $uibModal.open({
       templateUrl: 'app/partials/modal.html',
       controller: 'ModalInstanceCtrl',
